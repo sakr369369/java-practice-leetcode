@@ -13,6 +13,7 @@ public class ListToMap {
         listEmp.add(new Employee(109, "Krisha", "IAS", 150000));
 
         ListToMap(listEmp);
+        sortEmpBySalary(listEmp);
 
     }
 
@@ -27,7 +28,11 @@ public class ListToMap {
     }
 
     public static void sortEmpBySalary(List<Employee> listEmp){
-        List<Employee> listEmpSorted = listEmp.stream().sorted(Comparator.comparing(Employee::getSalay)).collect(Collectors.toList());
+        List<Employee> listEmpSortedAscOrder = listEmp.stream().sorted(Comparator.comparing(Employee::getSalay)).collect(Collectors.toList());
+        System.out.println(listEmpSortedAscOrder);
+
+        List<Employee> listEmpSortedDescOrder= listEmp.stream().sorted(Comparator.comparing(Employee::getSalay).reversed()).collect(Collectors.toList());
+        System.out.println(listEmpSortedDescOrder);
     }
 }
 
